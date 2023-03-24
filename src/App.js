@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import { useEffect, useState} from 'react';
 import './App.css';
+import { Header } from './componentes/Header/Header';
+import Products from './componentes/Products/Products';
+import { getProducts } from './products';
+import { useFilters } from './hooks/useFilters';
+import Navbar from './NavBar/NavBar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DetailContainer from './componentes/DetailContainer/DetailContainer';
+import { ChakraProvider } from '@chakra-ui/react';
+    
+    function App() {
+      const { filterProducts} = useFilters()
+      const [products, setProducts] = useState([])
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      useEffect(() => {
+        getProducts(setProducts)
+      }, [])
+
+  
+
+      const filteredProducts = filterProducts(products)
+
+
+  return(
+    <ChakraProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Products products={filteredProducts}/>}/>
+          <Route path="/detail/:id" element={<DetailContainer />}/>
+        </Routes>
+      </BrowserRouter>
+    </ChakraProvider>
+    
+  )
 }
 
 export default App;
