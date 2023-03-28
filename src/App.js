@@ -8,6 +8,7 @@ import Navbar from './NavBar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DetailContainer from './componentes/DetailContainer/DetailContainer';
 import { ChakraProvider } from '@chakra-ui/react';
+import Cart from './componentes/Cart/Cart';
     
     function App() {
       const { filterProducts} = useFilters()
@@ -24,9 +25,9 @@ import { ChakraProvider } from '@chakra-ui/react';
 
   return(
     <ChakraProvider>
+        <Cart/>
       <BrowserRouter>
         <Navbar />
-        <Header />
         <Routes>
           <Route path="/" element={<Products products={filteredProducts}/>}/>
           <Route path="/detail/:id" element={<DetailContainer />}/>

@@ -1,0 +1,11 @@
+.img-detail{
+    height: 200px;
+    width: auto;
+}
+
+@media(max-width:767px){
+    .img-detail{
+        height: 300px;
+        width: auto;
+    }
+}

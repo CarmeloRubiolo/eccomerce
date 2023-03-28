@@ -1,0 +1,19 @@
+.btn-cart-container{
+    position: absolute;
+    top: 88vh;
+    right: 7vh;
+}
+.img-cart{
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: #ccc;
+    height: 45px;
+}
+.position{
+    z-index: 999;
+    position: sticky;
+    top: 0;
+}
+.totalPagar{
+    margin-bottom: 30px;
+}

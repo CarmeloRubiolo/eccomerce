@@ -15,11 +15,11 @@ return (
             <NavContainer>
             <h2>React Shop</h2>
             <div className={`menu ${clicked ? 'active' : ''}`}>
-                <a href="#" onClick={handleClick}to="/">Inicio</a>
-                <a href="#" onClick={handleClick}to="/quienessomos">Quienes somos</a>
-                <a href="#" onClick={handleClick}to="/quehacemos">Qué hacemos</a>
-                <a href="#" onClick={handleClick}to="/contacto">Contacto</a>
-                <Link to="/cart"><img src="../../images/compras.png"/></Link>
+                <Link to="/">Inicio</Link>
+                <Link to="/quienessomos">Quienes somos</Link>
+                <Link to="/quehacemos">Qué hacemos</Link>
+                <Link to="/contacto">Contacto</Link>
+            
                 {/* <Link onClick={handleClick}to="/iniciarsecion"><PersonIcon/></Link> */}
             </div>
             <div className="burguer">
@@ -35,14 +35,15 @@ export default Navbar
 const NavContainer = styled.nav`
     border-bottom: 1px solid black;
     margin-bottom:20px;
-h2{
-    color:black;
-}
     padding: .4rem;
     background-color: white;
-    display:flex;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
+h2{
+    color:black;
+    font-size: 40px;
+}
 a{
         text-decoration: none;
         color: black;
@@ -55,6 +56,8 @@ a{
     margin-right:auto;
     text-align: center;
     transition: all .5s ease;
+    display:flex;
+    align-items: center;
     a{
         color: black;
         font-size:2rem;
@@ -75,19 +78,19 @@ a{
 }
 .menu.active{
     width:100%;
-    display: flex;
-    justify-content: center;
+    display: block;
     position:absolute;
     margin-left:10px;
     margin-right:auto;
-    top:10%;
+    top: 40px;
     left:0;
     text-align:left;
-    z-index:99;
+    z-index:999;
     a{
         font-size: 1.5rem;
         color: black;
         margin-top: 20px;
+        z-index:999;
     }
 }
 .burguer{
@@ -105,6 +108,7 @@ const BgDiv = styled.div`
     z-index:0;
     transition: all .6s ease;
     &.active{
+        z-index:99;
         top:0;
         left:0;
         width:50%;

@@ -2,11 +2,14 @@ import "./Products.css"
 import { getProducts } from "../../products"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { Header } from "../Header/Header"
 
 
 const Products = ({products}) => {
 
     return (
+      <>
+      <Header />
         <div className='container'>
       <div className='row'>
         {products.map(all => {
@@ -26,6 +29,7 @@ const Products = ({products}) => {
 
       </div>
     </div>
+        </>
     )
 }
 

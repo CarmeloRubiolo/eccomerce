@@ -1,0 +1,17 @@
+.img-cart-item{
+    height: 60px;
+}
+.card-item{
+    display: flex;
+    justify-content: space-evenly;
+}
+.card-cart{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .title-cart-item{
+        width: 200px;
+    }
+}
